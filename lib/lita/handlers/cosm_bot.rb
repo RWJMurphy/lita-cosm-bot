@@ -5,7 +5,7 @@ module Lita
       def answer(response)
         thing = response.match_data[1]
         definition = redis.get(thing)
-        if thing.nil?
+        if definition.nil?
           response.reply "I'm not sure, #{response.user.name}."
         else
           response.reply definition
