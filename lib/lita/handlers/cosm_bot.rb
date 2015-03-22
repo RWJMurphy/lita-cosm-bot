@@ -12,7 +12,7 @@ module Lita
         end
       end
 
-      route(/^remember\s+[^\s]+\s+is\s+[^\s]+]/i, :remember, command: true, help: { "remember X is Y" => "remembers a thing" })
+      route(/^remember\s+[^\s]+\s+is\s+[^\s]+/i, :remember, command: true, help: { "remember X is Y" => "remembers a thing" })
       def remember(response)
         thing = response.args[0]
         definition = response.args[2..-1].join(" ")
