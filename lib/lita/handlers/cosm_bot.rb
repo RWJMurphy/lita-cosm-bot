@@ -18,9 +18,9 @@ module Lita
         definition = response.args[2..-1].join(" ")
         if redis.get(thing).nil?
           redis.set(thing, definition)
-          reponse.reply("Ok #{response.user.name}, #{thing} is #{definition}.")
+          response.reply("Ok #{response.user.name}, #{thing} is #{definition}.")
         else
-          reponse.reply("Sorry #{response.user.name}, #{thing} is #{redis.get(thing)}.")
+          response.reply("Sorry #{response.user.name}, #{thing} is #{redis.get(thing)}.")
         end
       end
 
