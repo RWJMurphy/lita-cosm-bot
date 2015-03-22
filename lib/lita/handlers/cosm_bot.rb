@@ -35,15 +35,6 @@ module Lita
         end
       end
 
-      route(/^(,\s+)?reveal\s+your\s+secrets!/i, :dump, command: true)
-      def dump(response)
-        m = redis.keys('*')
-            .sort
-            .map { |key| [k, redis.get(key)] }
-            .map { |pair| pair.join ": " }
-            .join("\n")
-        response.reply(m)
-      end
     end
 
     Lita.register_handler(CosmBot)
